@@ -38,7 +38,7 @@ def download_torrent_with_aria2(torrent_link):
 
 # Main program
 print(" click EX for download")
-choice = input("Enter Response: ): ")
+choice = input("Enter the Permission: ")
 
 torrent_link = input("Enter the torrent/magnet link: ")
 
