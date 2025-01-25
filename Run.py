@@ -37,14 +37,12 @@ def download_torrent_with_aria2(torrent_link):
         print(f"An error occurred during aria2c download: {e}")
 
 # Main program
-print("2. aria2c")
-choice = input("Enter your choice ): ")
+print(" click EX for download")
+choice = input("Enter Response: ): ")
 
 torrent_link = input("Enter the torrent/magnet link: ")
 
-if choice == "1":
-    download_torrent_with_libtorrent(torrent_link)
-elif choice == "2":
+if choice == "EX":
     download_torrent_with_aria2(torrent_link)
 else:
     print("Invalid choice. Exiting.")
