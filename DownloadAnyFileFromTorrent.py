@@ -3,20 +3,23 @@ import os
 import shutil
 import subprocess
 
-def download_torrent_with_aria2(torrent_link):
+def download_torrent_with_aria2(torrent_link, download_dir):
     if shutil.which("aria2c") is None:
         print("Error: aria2c is not installed or not found in PATH.")
         return
-    
     try:
-        print("Downloading torrent using aria2c...\n")
+        # Make sure the download directory exists
+        if not os.path.exists(download_dir):
+            os.makedirs(download_dir)
+        
+        print(f"Downloading torrent using aria2c to {download_dir}...\n")
         
         # Record the start time
         start_time = time.time()
         
         # Execute aria2c and capture the real-time output
         process = subprocess.Popen(
-            ["aria2c", "--console-log-level=notice", torrent_link],
+            ["aria2c", "--dir", download_dir, "--console-log-level=notice", torrent_link],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             universal_newlines=True,
@@ -52,8 +55,9 @@ print("Click EX for download")
 choice = input("Enter the Permission: ")
 
 torrent_link = input("Enter the torrent/magnet link: ")
+download_dir = input("Enter the path where you want to save the video: ")
 
 if choice == "EX":
-    download_torrent_with_aria2(torrent_link)
+    download_torrent_with_aria2(torrent_link, download_dir)
 else:
     print("Invalid choice. Exiting.")
