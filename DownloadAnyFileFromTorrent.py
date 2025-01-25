@@ -11,9 +11,12 @@ def download_torrent_with_aria2(torrent_link):
     try:
         print("Downloading torrent using aria2c...\n")
         
+        # Record the start time
+        start_time = time.time()
+        
         # Execute aria2c and capture the real-time output
         process = subprocess.Popen(
-            ["aria2c", torrent_link],
+            ["aria2c", "--console-log-level=notice", torrent_link],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             universal_newlines=True,
@@ -23,13 +26,21 @@ def download_torrent_with_aria2(torrent_link):
         # Read and display aria2c output line by line
         for line in process.stdout:
             print(line.strip())
-
+            
+            # Look for download progress (e.g., "DL: 10MB/s" or similar)
+            if "DL:" in line:
+                print(line.strip())  # You can modify this line to extract specific data
+                
         # Wait for the process to complete
         process.wait()
 
+        # Record the end time
+        end_time = time.time()
+
         if process.returncode == 0:
-            
-            print("\nDownload complete!")
+            # Calculate the elapsed time
+            elapsed_time = end_time - start_time
+            print(f"\nDownload complete! Time taken: {elapsed_time:.2f} seconds")
         else:
             print("\nAn error occurred during the download.")
     
@@ -37,7 +48,7 @@ def download_torrent_with_aria2(torrent_link):
         print(f"An error occurred during aria2c download: {e}")
 
 # Main program
-print(" click EX for download")
+print("Click EX for download")
 choice = input("Enter the Permission: ")
 
 torrent_link = input("Enter the torrent/magnet link: ")
