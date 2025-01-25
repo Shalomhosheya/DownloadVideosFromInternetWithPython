@@ -23,3 +23,7 @@ To install `yt-dlp`, use pip:
 
 ```bash
 pip install yt-dlp
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Or without doing any of this You can just run the ExeFile and run it the terminal directly\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
