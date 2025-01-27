@@ -26,4 +26,4 @@ pip install yt-dlp
 
 
 
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Or without doing any of this You can just go  the script folder ,then to the ExeFile folder and run the excutable file\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Or without doing any of this just go ExeFile folder and run the excutable file\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
